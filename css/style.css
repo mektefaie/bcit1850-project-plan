@@ -1,7 +1,14 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.12,
+* Autoprefixer: v10.4.4
+* Browsers: last 4 version
+*/
+
 /* 
     COMP 1850: Project Plan
     author: Mahmoud Ektefaie
-    date:05/06/2022  
+    date:06/06/2022  
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -10,10 +17,12 @@
 /* General Styling */
 html {
   font-size: 16px;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 * {
+  -webkit-box-sizing: inherit;
   box-sizing: inherit;
   margin: 0;
   padding: 0;
@@ -22,7 +31,7 @@ html {
 /* ------ Variables ------ */
 :root {
   --main-color: #356d6d;
-  --second-color: #006a67;
+  --second-color: #004a48;
   --dark-color: #333333;
   --light-color: #bbd9d9;
   --second-transparent: #319491c6;
@@ -42,6 +51,51 @@ body {
   font-family: var(--block-text-font-face), sans-serif;
   background: var(--dark-color);
   color: var(--dark-color);
+  background-image: -o-repeating-linear-gradient(
+      transparent,
+      transparent 50px,
+      rgba(0, 255, 255, 0.25) 50px,
+      rgba(0, 255, 255, 0.25) 100px
+    ),
+    -o-repeating-linear-gradient(left, rgba(0, 255, 255, 0.25), rgba(
+            0,
+            255,
+            255,
+            0.25
+          )
+          50px, transparent 50px, transparent 100px),
+    -o-repeating-linear-gradient(315deg, transparent, transparent 4px, rgba(
+            255,
+            255,
+            255,
+            0.1
+          )
+          4px, rgba(255, 255, 255, 0.1) 8px),
+    -o-repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(
+            255,
+            255,
+            255,
+            0.1
+          )
+          4px, rgba(255, 255, 255, 0.1) 8px),
+    -o-repeating-linear-gradient(transparent, transparent 20px, rgba(
+            100,
+            250,
+            250,
+            0.2
+          )
+          20px, rgba(100, 250, 250, 0.2) 21px, transparent 21px, transparent
+          29px, rgba(100, 250, 250, 0.2) 29px, rgba(100, 250, 250, 0.2) 30px, transparent
+          30px, transparent 50px),
+    -o-repeating-linear-gradient(left, transparent, transparent 20px, rgba(
+            100,
+            250,
+            250,
+            0.2
+          )
+          20px, rgba(100, 250, 250, 0.2) 21px, transparent 21px, transparent
+          29px, rgba(100, 250, 250, 0.2) 29px, rgba(100, 250, 250, 0.2) 30px, transparent
+          30px, transparent 50px);
   background-image: repeating-linear-gradient(
       transparent,
       transparent 50px,
@@ -101,12 +155,27 @@ img {
   height: auto;
   border-radius: 5% 40%;
   margin: 1em 0 1.5em;
+  -webkit-box-shadow: 0 0 3px 1px #474747;
   box-shadow: 0 0 3px 1px #474747;
 }
 
 hr {
   border: 0;
   height: 1px;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(rgba(0, 0, 0, 0)),
+    color-stop(rgba(0, 0, 0, 0.75)),
+    to(rgba(0, 0, 0, 0))
+  );
+  background-image: -o-linear-gradient(
+    left,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
   background-image: linear-gradient(
     to right,
     rgba(0, 0, 0, 0),
@@ -119,7 +188,12 @@ hr {
   min-width: 300px;
   max-width: 992px;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   min-height: 100vh;
   background: var(--light-color);
@@ -135,13 +209,37 @@ hr {
 .highlight {
   padding: 0 0.2em;
   font-weight: 500;
-  background-color: #fff2ac;
-  background-image: linear-gradient(to right, #ffde38 0%, #fff6c3 100%);
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(transparent),
+    color-stop(54%, transparent),
+    color-stop(54%, rgb(251, 253, 137)),
+    color-stop(82.625%, rgb(251, 253, 137)),
+    color-stop(82.625%, transparent),
+    to(transparent)
+  );
+  background-image: -o-linear-gradient(
+    transparent 0%,
+    transparent 54%,
+    rgb(251, 253, 137) 54%,
+    rgb(251, 253, 137) 82.625%,
+    transparent 82.625%,
+    transparent 100%
+  );
+  background-image: linear-gradient(
+    transparent 0%,
+    transparent 54%,
+    rgb(251, 253, 137) 54%,
+    rgb(251, 253, 137) 82.625%,
+    transparent 82.625%,
+    transparent 100%
+  );
 }
 
 /* Typography */
 h1 {
-  /* text-shadow: 0px 1px 2px#2d2d2d; */
   font-weight: 300;
   text-transform: uppercase;
   font-size: 2rem;
@@ -149,38 +247,61 @@ h1 {
 }
 
 h2 {
-  color: var(--dark-color);
+  color: var(--second-color);
   font-size: 1.6rem;
   font-weight: 400;
   text-align: center;
   margin-bottom: 0.5em;
 }
 
+h3 {
+  color: var(--dark-color);
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 1em;
+}
+
 p {
   margin-bottom: 0.5em;
 }
 
-/* Outline */
+strong {
+  font-size: 1rem;
+  font-weight: 500;
+}
 
 /* Links */
 a:link,
 a:visited {
-  color: #003d93;
+  color: #334f75;
 }
 
 a:hover,
 a:focus {
   text-decoration: none;
-  color: rgb(173, 113, 0);
+  color: rgb(95, 59, 41);
+}
+
+.site-link {
+  display: inline-block;
+  margin-top: 0.2em;
+  margin-bottom: 0.5em;
 }
 
 /* =================================== */
 /* Nav Section */
 /* =================================== */
 .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   color: var(--light-color);
   background-color: var(--dark-color);
@@ -188,7 +309,11 @@ a:focus {
 }
 
 .brand {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -197,7 +322,6 @@ a:focus {
   color: inherit;
   font-size: 50px;
   padding: 0.25em 0.5em;
-  /* margin: 0.52em 1em; */
 }
 
 .brand--name {
@@ -211,8 +335,12 @@ nav {
 }
 
 nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   text-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -229,6 +357,8 @@ nav ul li a {
   text-transform: uppercase;
   padding: 0.5em 1em;
   display: inline-block;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 
@@ -242,20 +372,21 @@ nav ul li a:hover,
 nav ul li a:focus {
   text-shadow: none;
   color: #fdd835;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
   transform: scale(1.1);
-  /* text-shadow: 0 1px 1px#2d2d2d; */
 }
 
 nav ul li a.active {
   text-shadow: none;
   color: #ffe573;
-  /* text-shadow: 0 1px 1px#2d2d2d; */
 }
 
 /* =================================== */
 /* Main Section */
 /* =================================== */
 header {
+  -webkit-box-shadow: 0 1px 1px #8d8d8d;
   box-shadow: 0 1px 1px #8d8d8d;
 }
 
@@ -283,11 +414,14 @@ header.analysis h1 {
   position: absolute;
   left: 50%;
   top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   background-color: var(--accent-color);
   color: var(--dark-color);
   padding: 0 0.5em;
   border-radius: 12px;
+  -webkit-box-shadow: 0 0 0 1px rgb(56, 56, 56);
   box-shadow: 0 0 0 1px rgb(56, 56, 56);
 }
 
@@ -295,6 +429,8 @@ header.analysis h1 {
 /* Main Section */
 /* =================================== */
 main {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   background-color: var(--light-color);
   padding: 1em;
@@ -308,15 +444,16 @@ article p:last-child {
   margin-bottom: 0;
 }
 
-/* Main--Proposal */
 .architecture--wireframe img {
   border-radius: 0;
   margin: 0;
+  -webkit-box-shadow: 0 0 1px 0 #474747;
   box-shadow: 0 0 1px 0 #474747;
 }
 
 .architecture--wireframe {
   margin: 1.5em 0;
+  -webkit-box-shadow: 0 0 1px 0 #525252;
   box-shadow: 0 0 1px 0 #525252;
 }
 
@@ -335,13 +472,10 @@ ul.list-of-pages li {
   display: inline-block;
   height: 15px;
   width: 15px;
-  /* text-align: center; */
   background-image: url(../assets/images/yellow-arrow.png);
   background-size: contain;
   background-repeat: no-repeat;
   margin-right: 5px;
-  /* box-shadow: 1px px 2px #191919; */
-  /* border-radius: 5px; */
 }
 
 .site-objectives,
@@ -379,11 +513,23 @@ footer p {
 /* Medium and up media query */
 /* =================================== */
 @media screen and (min-width: 768px) {
+  h1 {
+    font-weight: 300;
+    font-size: 2.4rem;
+    letter-spacing: 2px;
+  }
+
   .theme--flex,
   .objectives--flex,
   .audience--flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
     justify-content: space-evenly;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
 
@@ -401,6 +547,8 @@ footer p {
 
   .theme--flex-body,
   .audience--flex-body {
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
     order: -1;
   }
 
@@ -413,20 +561,54 @@ footer p {
     width: 80%;
     margin: 0 auto;
   }
+
+  .competitors {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .ifab,
+  .dutch {
+    width: 50%;
+    padding: 0 1em 1em;
+  }
+
+  .frequent,
+  .color,
+  .layout {
+    padding: 0 2em 2em;
+  }
 }
 
 /* =================================== */
 /* Large and up media query */
 /* =================================== */
 @media screen and (min-width: 992px) {
+  h1 {
+    font-weight: 400;
+    font-size: 2.8rem;
+    letter-spacing: 3px;
+  }
+
+  h2 {
+    text-align: left;
+  }
+
   main {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
 
   .theme--flex,
   .objectives--flex,
   .audience--flex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
 
@@ -442,6 +624,8 @@ footer p {
 
   .theme--flex-body,
   .audience--flex-body {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
     order: 1;
   }
   .architecture--flex-img {
@@ -449,7 +633,24 @@ footer p {
     margin: auto;
   }
 
-  .pages {
-    display: none;
+  .frequent-color-layout {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+  }
+
+  .frequent,
+  .color,
+  .layout {
+    width: 33%;
+    padding: 0 1em;
   }
 }
